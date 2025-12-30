@@ -1,2 +1,0 @@
-# VSOSH
-project/PZ/plakat
