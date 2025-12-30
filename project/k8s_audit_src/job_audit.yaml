@@ -1,0 +1,20 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: k8s-audit
+  namespace: audit
+spec:
+  backoffLimit: 0
+  template:
+    spec:
+      restartPolicy: Never
+      serviceAccountName: k8s-audit
+      containers:
+        - name: audit
+          image: k8s-audit:local
+          args:
+            - "-format=json"
+            - "-fail-on=HIGH"
+            # - "-namespace=lab-vuln"            # сканить только один namespace
+            # - "-include-kube-system"           # включить kube-system
+            # - "-probe-imds"                    # активный probe на 169.254.169.254

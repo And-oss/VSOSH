@@ -1,0 +1,40 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: audit
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: k8s-audit
+  namespace: audit
+# токен должен монтироваться (default true)
+automountServiceAccountToken: true
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: k8s-audit-readonly
+rules:
+  - apiGroups: [""]
+    resources: ["pods", "namespaces", "serviceaccounts", "services", "nodes"]
+    verbs: ["get", "list", "watch"]
+  - apiGroups: ["rbac.authorization.k8s.io"]
+    resources: ["roles", "rolebindings", "clusterroles", "clusterrolebindings"]
+    verbs: ["get", "list", "watch"]
+  - apiGroups: ["networking.k8s.io"]
+    resources: ["networkpolicies", "ingresses"]
+    verbs: ["get", "list", "watch"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: k8s-audit-readonly-binding
+subjects:
+  - kind: ServiceAccount
+    name: k8s-audit
+    namespace: audit
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: k8s-audit-readonly

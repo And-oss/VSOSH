@@ -1,0 +1,1038 @@
+{
+  "cluster": {
+    "kubernetesVersion": "v1.34.0",
+    "apiServer": "https://10.96.0.1:443"
+  },
+  "generatedAt": "2025-12-30T13:38:59.308397424Z",
+  "summary": {
+    "CRITICAL": 4,
+    "HIGH": 36,
+    "LOW": 3,
+    "MEDIUM": 38
+  },
+  "findings": [
+    {
+      "checkId": "K8S-PSA-001",
+      "severity": "MEDIUM",
+      "resource": {
+        "kind": "Namespace",
+        "name": "audit"
+      },
+      "title": "Pod Security Admission (enforce) не настроен",
+      "evidence": "label pod-security.kubernetes.io/enforce отсутствует",
+      "risk": "Кластер может принимать небезопасные Pod'ы без базовых ограничений",
+      "recommendation": "Задать pod-security.kubernetes.io/enforce=baseline/restricted"
+    },
+    {
+      "checkId": "K8S-PSA-001",
+      "severity": "MEDIUM",
+      "resource": {
+        "kind": "Namespace",
+        "name": "default"
+      },
+      "title": "Pod Security Admission (enforce) не настроен",
+      "evidence": "label pod-security.kubernetes.io/enforce отсутствует",
+      "risk": "Кластер может принимать небезопасные Pod'ы без базовых ограничений",
+      "recommendation": "Задать pod-security.kubernetes.io/enforce=baseline/restricted"
+    },
+    {
+      "checkId": "K8S-PSA-001",
+      "severity": "MEDIUM",
+      "resource": {
+        "kind": "Namespace",
+        "name": "kube-node-lease"
+      },
+      "title": "Pod Security Admission (enforce) не настроен",
+      "evidence": "label pod-security.kubernetes.io/enforce отсутствует",
+      "risk": "Кластер может принимать небезопасные Pod'ы без базовых ограничений",
+      "recommendation": "Задать pod-security.kubernetes.io/enforce=baseline/restricted"
+    },
+    {
+      "checkId": "K8S-PSA-001",
+      "severity": "MEDIUM",
+      "resource": {
+        "kind": "Namespace",
+        "name": "kube-public"
+      },
+      "title": "Pod Security Admission (enforce) не настроен",
+      "evidence": "label pod-security.kubernetes.io/enforce отсутствует",
+      "risk": "Кластер может принимать небезопасные Pod'ы без базовых ограничений",
+      "recommendation": "Задать pod-security.kubernetes.io/enforce=baseline/restricted"
+    },
+    {
+      "checkId": "K8S-PSA-001",
+      "severity": "MEDIUM",
+      "resource": {
+        "kind": "Namespace",
+        "name": "lab-egress"
+      },
+      "title": "Pod Security Admission (enforce) не настроен",
+      "evidence": "label pod-security.kubernetes.io/enforce отсутствует",
+      "risk": "Кластер может принимать небезопасные Pod'ы без базовых ограничений",
+      "recommendation": "Задать pod-security.kubernetes.io/enforce=baseline/restricted"
+    },
+    {
+      "checkId": "K8S-PSA-001",
+      "severity": "MEDIUM",
+      "resource": {
+        "kind": "Namespace",
+        "name": "lab-vuln"
+      },
+      "title": "Pod Security Admission (enforce) не настроен",
+      "evidence": "label pod-security.kubernetes.io/enforce отсутствует",
+      "risk": "Кластер может принимать небезопасные Pod'ы без базовых ограничений",
+      "recommendation": "Задать pod-security.kubernetes.io/enforce=baseline/restricted"
+    },
+    {
+      "checkId": "K8S-PSA-001",
+      "severity": "MEDIUM",
+      "resource": {
+        "kind": "Namespace",
+        "name": "local-path-storage"
+      },
+      "title": "Pod Security Admission (enforce) не настроен",
+      "evidence": "label pod-security.kubernetes.io/enforce отсутствует",
+      "risk": "Кластер может принимать небезопасные Pod'ы без базовых ограничений",
+      "recommendation": "Задать pod-security.kubernetes.io/enforce=baseline/restricted"
+    },
+    {
+      "checkId": "K8S-POD-008",
+      "severity": "MEDIUM",
+      "resource": {
+        "kind": "Pod",
+        "namespace": "audit",
+        "name": "k8s-audit-52562"
+      },
+      "title": "Automount ServiceAccount токена включен",
+      "evidence": "automountServiceAccountToken=true (явно или по умолчанию)",
+      "risk": "При компрометации пода токен может быть украден и использован для kube-API",
+      "recommendation": "Если доступ к kube-API не нужен — установить automountServiceAccountToken: false"
+    },
+    {
+      "checkId": "K8S-POD-005",
+      "severity": "MEDIUM",
+      "resource": {
+        "kind": "Pod",
+        "namespace": "audit",
+        "name": "k8s-audit-52562"
+      },
+      "title": "Seccomp профиль не установлен",
+      "evidence": "container \"audit\": seccompProfile not set",
+      "risk": "Отсутствие seccomp расширяет набор доступных syscalls",
+      "recommendation": "Использовать RuntimeDefault или Localhost профиль"
+    },
+    {
+      "checkId": "K8S-POD-008",
+      "severity": "MEDIUM",
+      "resource": {
+        "kind": "Pod",
+        "namespace": "lab-egress",
+        "name": "imds-probe"
+      },
+      "title": "Automount ServiceAccount токена включен",
+      "evidence": "automountServiceAccountToken=true (явно или по умолчанию)",
+      "risk": "При компрометации пода токен может быть украден и использован для kube-API",
+      "recommendation": "Если доступ к kube-API не нужен — установить automountServiceAccountToken: false"
+    },
+    {
+      "checkId": "K8S-POD-005",
+      "severity": "MEDIUM",
+      "resource": {
+        "kind": "Pod",
+        "namespace": "lab-egress",
+        "name": "imds-probe"
+      },
+      "title": "Seccomp профиль не установлен",
+      "evidence": "container \"curl\": seccompProfile not set",
+      "risk": "Отсутствие seccomp расширяет набор доступных syscalls",
+      "recommendation": "Использовать RuntimeDefault или Localhost профиль"
+    },
+    {
+      "checkId": "K8S-POD-003",
+      "severity": "HIGH",
+      "resource": {
+        "kind": "Pod",
+        "namespace": "lab-vuln",
+        "name": "privileged-hostpath"
+      },
+      "title": "Использование host namespace (hostNetwork/hostPID/hostIPC)",
+      "evidence": "spec.hostNetwork, hostPID=true",
+      "risk": "Под повышает риск компрометации узла и обхода изоляции контейнеров",
+      "recommendation": "Отключить hostNetwork/hostPID/hostIPC, если это не строго необходимо"
+    },
+    {
+      "checkId": "K8S-POD-002",
+      "severity": "CRITICAL",
+      "resource": {
+        "kind": "Pod",
+        "namespace": "lab-vuln",
+        "name": "privileged-hostpath"
+      },
+      "title": "Монтирование hostPath",
+      "evidence": "volume \"host-root\": hostPath=\"/\"",
+      "risk": "Доступ к ФС узла может привести к эскалации привилегий и утечке данных",
+      "recommendation": "Избегать hostPath. Использовать PVC/CSI или минимально необходимый путь + readOnly"
+    },
+    {
+      "checkId": "K8S-POD-002",
+      "severity": "CRITICAL",
+      "resource": {
+        "kind": "Pod",
+        "namespace": "lab-vuln",
+        "name": "privileged-hostpath"
+      },
+      "title": "Монтирование hostPath",
+      "evidence": "volume \"host-proc\": hostPath=\"/proc\"",
+      "risk": "Доступ к ФС узла может привести к эскалации привилегий и утечке данных",
+      "recommendation": "Избегать hostPath. Использовать PVC/CSI или минимально необходимый путь + readOnly"
+    },
+    {
+      "checkId": "K8S-POD-008",
+      "severity": "MEDIUM",
+      "resource": {
+        "kind": "Pod",
+        "namespace": "lab-vuln",
+        "name": "privileged-hostpath"
+      },
+      "title": "Automount ServiceAccount токена включен",
+      "evidence": "automountServiceAccountToken=true (явно или по умолчанию)",
+      "risk": "При компрометации пода токен может быть украден и использован для kube-API",
+      "recommendation": "Если доступ к kube-API не нужен — установить automountServiceAccountToken: false"
+    },
+    {
+      "checkId": "K8S-POD-001",
+      "severity": "CRITICAL",
+      "resource": {
+        "kind": "Pod",
+        "namespace": "lab-vuln",
+        "name": "privileged-hostpath"
+      },
+      "title": "Privileged контейнер",
+      "evidence": "container \"shell\": securityContext.privileged=true",
+      "risk": "Privileged контейнер имеет расширенный доступ к ядру и устройствам узла",
+      "recommendation": "Убрать privileged. Использовать минимальные capabilities и PSA/Policy"
+    },
+    {
+      "checkId": "K8S-POD-004",
+      "severity": "HIGH",
+      "resource": {
+        "kind": "Pod",
+        "namespace": "lab-vuln",
+        "name": "privileged-hostpath"
+      },
+      "title": "Контейнер запускается от root",
+      "evidence": "container \"shell\": runAsUser=0",
+      "risk": "Root в контейнере увеличивает последствия RCE",
+      "recommendation": "Установить runAsNonRoot: true и runAsUser на непривилегированный UID"
+    },
+    {
+      "checkId": "K8S-POD-005",
+      "severity": "MEDIUM",
+      "resource": {
+        "kind": "Pod",
+        "namespace": "lab-vuln",
+        "name": "privileged-hostpath"
+      },
+      "title": "Seccomp профиль не установлен",
+      "evidence": "container \"shell\": seccompProfile.type=Unconfined",
+      "risk": "Отсутствие seccomp расширяет набор доступных syscalls",
+      "recommendation": "Использовать RuntimeDefault или Localhost профиль"
+    },
+    {
+      "checkId": "K8S-POD-006",
+      "severity": "HIGH",
+      "resource": {
+        "kind": "Pod",
+        "namespace": "lab-vuln",
+        "name": "privileged-hostpath"
+      },
+      "title": "AllowPrivilegeEscalation=true",
+      "evidence": "container \"shell\": allowPrivilegeEscalation=true",
+      "risk": "Позволяет использовать setuid/setgid и повышать привилегии",
+      "recommendation": "Установить allowPrivilegeEscalation: false"
+    },
+    {
+      "checkId": "K8S-POD-007",
+      "severity": "MEDIUM",
+      "resource": {
+        "kind": "Pod",
+        "namespace": "lab-vuln",
+        "name": "privileged-hostpath"
+      },
+      "title": "readOnlyRootFilesystem отключен",
+      "evidence": "container \"shell\": readOnlyRootFilesystem=false",
+      "risk": "Запись в rootfs упрощает закрепление вредоносного кода",
+      "recommendation": "Включить readOnlyRootFilesystem: true и монтировать writable тома отдельно"
+    },
+    {
+      "checkId": "K8S-POD-010",
+      "severity": "MEDIUM",
+      "resource": {
+        "kind": "Pod",
+        "namespace": "lab-vuln",
+        "name": "privileged-hostpath"
+      },
+      "title": "Добавлены Linux capabilities",
+      "evidence": "container \"shell\": capabilities.add=[NET_ADMIN NET_RAW SYS_ADMIN]",
+      "risk": "Доп. capabilities увеличивают привилегии контейнера",
+      "recommendation": "Избегать capabilities.add, использовать allowlist по необходимости"
+    },
+    {
+      "checkId": "K8S-POD-011",
+      "severity": "LOW",
+      "resource": {
+        "kind": "Pod",
+        "namespace": "lab-vuln",
+        "name": "privileged-hostpath"
+      },
+      "title": "Не указан capabilities.drop",
+      "evidence": "container \"shell\": capabilities.drop not set",
+      "risk": "По умолчанию контейнер сохраняет набор стандартных capabilities",
+      "recommendation": "Явно сбросить все capabilities (drop: [\"ALL\"]) и добавить нужные"
+    },
+    {
+      "checkId": "K8S-POD-008",
+      "severity": "MEDIUM",
+      "resource": {
+        "kind": "Pod",
+        "namespace": "lab-vuln",
+        "name": "secrets-in-env-85d9b7b965-gj7h5"
+      },
+      "title": "Automount ServiceAccount токена включен",
+      "evidence": "automountServiceAccountToken=true (явно или по умолчанию)",
+      "risk": "При компрометации пода токен может быть украден и использован для kube-API",
+      "recommendation": "Если доступ к kube-API не нужен — установить automountServiceAccountToken: false"
+    },
+    {
+      "checkId": "K8S-POD-005",
+      "severity": "MEDIUM",
+      "resource": {
+        "kind": "Pod",
+        "namespace": "lab-vuln",
+        "name": "secrets-in-env-85d9b7b965-gj7h5"
+      },
+      "title": "Seccomp профиль не установлен",
+      "evidence": "container \"app\": seccompProfile not set",
+      "risk": "Отсутствие seccomp расширяет набор доступных syscalls",
+      "recommendation": "Использовать RuntimeDefault или Localhost профиль"
+    },
+    {
+      "checkId": "K8S-POD-012",
+      "severity": "LOW",
+      "resource": {
+        "kind": "Pod",
+        "namespace": "lab-vuln",
+        "name": "secrets-in-env-85d9b7b965-gj7h5"
+      },
+      "title": "Секреты проброшены в env",
+      "evidence": "container \"app\": env \"DB_PASSWORD\" from secret \"demo-secret\"",
+      "risk": "Секреты в env могут попасть в логи/дампы",
+      "recommendation": "Минимизировать секреты в env; избегать вывода env в логи"
+    },
+    {
+      "checkId": "K8S-POD-012",
+      "severity": "LOW",
+      "resource": {
+        "kind": "Pod",
+        "namespace": "lab-vuln",
+        "name": "secrets-in-env-85d9b7b965-gj7h5"
+      },
+      "title": "Секреты проброшены в env",
+      "evidence": "container \"app\": env \"API_TOKEN\" from secret \"demo-secret\"",
+      "risk": "Секреты в env могут попасть в логи/дампы",
+      "recommendation": "Минимизировать секреты в env; избегать вывода env в логи"
+    },
+    {
+      "checkId": "K8S-POD-008",
+      "severity": "MEDIUM",
+      "resource": {
+        "kind": "Pod",
+        "namespace": "lab-vuln",
+        "name": "web-nodeport-55cc6cbdbf-grrlt"
+      },
+      "title": "Automount ServiceAccount токена включен",
+      "evidence": "automountServiceAccountToken=true (явно или по умолчанию)",
+      "risk": "При компрометации пода токен может быть украден и использован для kube-API",
+      "recommendation": "Если доступ к kube-API не нужен — установить automountServiceAccountToken: false"
+    },
+    {
+      "checkId": "K8S-POD-005",
+      "severity": "MEDIUM",
+      "resource": {
+        "kind": "Pod",
+        "namespace": "lab-vuln",
+        "name": "web-nodeport-55cc6cbdbf-grrlt"
+      },
+      "title": "Seccomp профиль не установлен",
+      "evidence": "container \"web\": seccompProfile not set",
+      "risk": "Отсутствие seccomp расширяет набор доступных syscalls",
+      "recommendation": "Использовать RuntimeDefault или Localhost профиль"
+    },
+    {
+      "checkId": "K8S-POD-008",
+      "severity": "MEDIUM",
+      "resource": {
+        "kind": "Pod",
+        "namespace": "local-path-storage",
+        "name": "local-path-provisioner-7b8c8ddbd6-khd6j"
+      },
+      "title": "Automount ServiceAccount токена включен",
+      "evidence": "automountServiceAccountToken=true (явно или по умолчанию)",
+      "risk": "При компрометации пода токен может быть украден и использован для kube-API",
+      "recommendation": "Если доступ к kube-API не нужен — установить automountServiceAccountToken: false"
+    },
+    {
+      "checkId": "K8S-POD-005",
+      "severity": "MEDIUM",
+      "resource": {
+        "kind": "Pod",
+        "namespace": "local-path-storage",
+        "name": "local-path-provisioner-7b8c8ddbd6-khd6j"
+      },
+      "title": "Seccomp профиль не установлен",
+      "evidence": "container \"local-path-provisioner\": seccompProfile not set",
+      "risk": "Отсутствие seccomp расширяет набор доступных syscalls",
+      "recommendation": "Использовать RuntimeDefault или Localhost профиль"
+    },
+    {
+      "checkId": "K8S-RBAC-002",
+      "severity": "HIGH",
+      "resource": {
+        "kind": "ServiceAccount",
+        "namespace": "lab-vuln",
+        "name": "dev-sa"
+      },
+      "title": "RBAC: доступ к secrets",
+      "evidence": "binding \"lab-dangerous-ops-binding\" -\u003e clusterrole \"lab-dangerous-ops\": resources include secrets, verbs=[get list watch]",
+      "risk": "Позволяет читать секреты и расширять компрометацию",
+      "recommendation": "Убрать доступ к secrets для прикладных SA"
+    },
+    {
+      "checkId": "K8S-RBAC-003",
+      "severity": "HIGH",
+      "resource": {
+        "kind": "ServiceAccount",
+        "namespace": "lab-vuln",
+        "name": "dev-sa"
+      },
+      "title": "RBAC: доступ к pods/exec",
+      "evidence": "binding \"lab-dangerous-ops-binding\" -\u003e clusterrole \"lab-dangerous-ops\": resources include pods/exec, verbs=[create get list watch]",
+      "risk": "Позволяет выполнять команды в контейнерах",
+      "recommendation": "Ограничить pods/exec только операторам/SRE при необходимости"
+    },
+    {
+      "checkId": "K8S-RBAC-004",
+      "severity": "HIGH",
+      "resource": {
+        "kind": "ServiceAccount",
+        "namespace": "lab-vuln",
+        "name": "dev-sa"
+      },
+      "title": "RBAC: доступ к nodes",
+      "evidence": "binding \"lab-dangerous-ops-binding\" -\u003e clusterrole \"lab-dangerous-ops\": resources include nodes, verbs=[get list watch]",
+      "risk": "Доступ к узлам помогает собирать чувствительную информацию",
+      "recommendation": "Убрать доступ к nodes для прикладных сервисов"
+    },
+    {
+      "checkId": "K8S-RBAC-005",
+      "severity": "CRITICAL",
+      "resource": {
+        "kind": "ServiceAccount",
+        "namespace": "lab-vuln",
+        "name": "dev-sa"
+      },
+      "title": "RBAC: возможность изменять привязки ролей",
+      "evidence": "binding \"lab-dangerous-ops-binding\" -\u003e clusterrole \"lab-dangerous-ops\": resources include rolebindings/clusterrolebindings, verbs=[create get list patch update]",
+      "risk": "Позволяет расширить собственные права (эскалация в kube-API)",
+      "recommendation": "Запретить сервисам изменять rolebindings/clusterrolebindings"
+    },
+    {
+      "checkId": "K8S-RBAC-004",
+      "severity": "HIGH",
+      "resource": {
+        "kind": "ServiceAccount",
+        "namespace": "kube-system",
+        "name": "kube-proxy"
+      },
+      "title": "RBAC: доступ к nodes",
+      "evidence": "binding \"kubeadm:node-proxier\" -\u003e clusterrole \"system:node-proxier\": resources include nodes, verbs=[get list watch]",
+      "risk": "Доступ к узлам помогает собирать чувствительную информацию",
+      "recommendation": "Убрать доступ к nodes для прикладных сервисов"
+    },
+    {
+      "checkId": "K8S-RBAC-004",
+      "severity": "HIGH",
+      "resource": {
+        "kind": "ServiceAccount",
+        "namespace": "kube-system",
+        "name": "persistent-volume-binder"
+      },
+      "title": "RBAC: доступ к nodes",
+      "evidence": "binding \"system:controller:persistent-volume-binder\" -\u003e clusterrole \"system:controller:persistent-volume-binder\": resources include nodes, verbs=[list watch]",
+      "risk": "Доступ к узлам помогает собирать чувствительную информацию",
+      "recommendation": "Убрать доступ к nodes для прикладных сервисов"
+    },
+    {
+      "checkId": "K8S-RBAC-004",
+      "severity": "HIGH",
+      "resource": {
+        "kind": "ServiceAccount",
+        "namespace": "kube-system",
+        "name": "endpointslice-controller"
+      },
+      "title": "RBAC: доступ к nodes",
+      "evidence": "binding \"system:controller:endpointslice-controller\" -\u003e clusterrole \"system:controller:endpointslice-controller\": resources include nodes, verbs=[get list watch]",
+      "risk": "Доступ к узлам помогает собирать чувствительную информацию",
+      "recommendation": "Убрать доступ к nodes для прикладных сервисов"
+    },
+    {
+      "checkId": "K8S-RBAC-001",
+      "severity": "HIGH",
+      "resource": {
+        "kind": "ServiceAccount",
+        "namespace": "kube-system",
+        "name": "generic-garbage-collector"
+      },
+      "title": "Избыточные RBAC-права (wildcard)",
+      "evidence": "binding \"system:controller:generic-garbage-collector\" -\u003e clusterrole \"system:controller:generic-garbage-collector\": apiGroups=[*] resources=[*] verbs=[delete get list patch update watch]",
+      "risk": "Wildcard правила часто позволяют выполнять опасные операции в kube-API",
+      "recommendation": "Заменить '*' на конкретные ресурсы/verbs и ограничить по namespace"
+    },
+    {
+      "checkId": "K8S-RBAC-001",
+      "severity": "HIGH",
+      "resource": {
+        "kind": "ServiceAccount",
+        "namespace": "kube-system",
+        "name": "namespace-controller"
+      },
+      "title": "Избыточные RBAC-права (wildcard)",
+      "evidence": "binding \"system:controller:namespace-controller\" -\u003e clusterrole \"system:controller:namespace-controller\": apiGroups=[*] resources=[*] verbs=[delete deletecollection get list watch]",
+      "risk": "Wildcard правила часто позволяют выполнять опасные операции в kube-API",
+      "recommendation": "Заменить '*' на конкретные ресурсы/verbs и ограничить по namespace"
+    },
+    {
+      "checkId": "K8S-RBAC-001",
+      "severity": "HIGH",
+      "resource": {
+        "kind": "ServiceAccount",
+        "namespace": "kube-system",
+        "name": "horizontal-pod-autoscaler"
+      },
+      "title": "Избыточные RBAC-права (wildcard)",
+      "evidence": "binding \"system:controller:horizontal-pod-autoscaler\" -\u003e clusterrole \"system:controller:horizontal-pod-autoscaler\": apiGroups=[*] resources=[*/scale] verbs=[get update]",
+      "risk": "Wildcard правила часто позволяют выполнять опасные операции в kube-API",
+      "recommendation": "Заменить '*' на конкретные ресурсы/verbs и ограничить по namespace"
+    },
+    {
+      "checkId": "K8S-RBAC-001",
+      "severity": "HIGH",
+      "resource": {
+        "kind": "ServiceAccount",
+        "namespace": "kube-system",
+        "name": "horizontal-pod-autoscaler"
+      },
+      "title": "Избыточные RBAC-права (wildcard)",
+      "evidence": "binding \"system:controller:horizontal-pod-autoscaler\" -\u003e clusterrole \"system:controller:horizontal-pod-autoscaler\": apiGroups=[custom.metrics.k8s.io] resources=[*] verbs=[get list watch]",
+      "risk": "Wildcard правила часто позволяют выполнять опасные операции в kube-API",
+      "recommendation": "Заменить '*' на конкретные ресурсы/verbs и ограничить по namespace"
+    },
+    {
+      "checkId": "K8S-RBAC-001",
+      "severity": "HIGH",
+      "resource": {
+        "kind": "ServiceAccount",
+        "namespace": "kube-system",
+        "name": "horizontal-pod-autoscaler"
+      },
+      "title": "Избыточные RBAC-права (wildcard)",
+      "evidence": "binding \"system:controller:horizontal-pod-autoscaler\" -\u003e clusterrole \"system:controller:horizontal-pod-autoscaler\": apiGroups=[external.metrics.k8s.io] resources=[*] verbs=[get list watch]",
+      "risk": "Wildcard правила часто позволяют выполнять опасные операции в kube-API",
+      "recommendation": "Заменить '*' на конкретные ресурсы/verbs и ограничить по namespace"
+    },
+    {
+      "checkId": "K8S-RBAC-004",
+      "severity": "HIGH",
+      "resource": {
+        "kind": "ServiceAccount",
+        "namespace": "kube-system",
+        "name": "kindnet"
+      },
+      "title": "RBAC: доступ к nodes",
+      "evidence": "binding \"kindnet\" -\u003e clusterrole \"kindnet\": resources include nodes, verbs=[list watch]",
+      "risk": "Доступ к узлам помогает собирать чувствительную информацию",
+      "recommendation": "Убрать доступ к nodes для прикладных сервисов"
+    },
+    {
+      "checkId": "K8S-RBAC-004",
+      "severity": "HIGH",
+      "resource": {
+        "kind": "ServiceAccount",
+        "namespace": "kube-system",
+        "name": "daemon-set-controller"
+      },
+      "title": "RBAC: доступ к nodes",
+      "evidence": "binding \"system:controller:daemon-set-controller\" -\u003e clusterrole \"system:controller:daemon-set-controller\": resources include nodes, verbs=[list watch]",
+      "risk": "Доступ к узлам помогает собирать чувствительную информацию",
+      "recommendation": "Убрать доступ к nodes для прикладных сервисов"
+    },
+    {
+      "checkId": "K8S-RBAC-001",
+      "severity": "HIGH",
+      "resource": {
+        "kind": "ServiceAccount",
+        "namespace": "lab-vuln",
+        "name": "cluster-admin-sa"
+      },
+      "title": "Избыточные RBAC-права (wildcard)",
+      "evidence": "binding \"lab-superuser-binding\" -\u003e clusterrole \"lab-superuser\": apiGroups=[*] resources=[*] verbs=[*]",
+      "risk": "Wildcard правила часто позволяют выполнять опасные операции в kube-API",
+      "recommendation": "Заменить '*' на конкретные ресурсы/verbs и ограничить по namespace"
+    },
+    {
+      "checkId": "K8S-RBAC-004",
+      "severity": "HIGH",
+      "resource": {
+        "kind": "ServiceAccount",
+        "namespace": "kube-system",
+        "name": "pod-garbage-collector"
+      },
+      "title": "RBAC: доступ к nodes",
+      "evidence": "binding \"system:controller:pod-garbage-collector\" -\u003e clusterrole \"system:controller:pod-garbage-collector\": resources include nodes, verbs=[get list watch]",
+      "risk": "Доступ к узлам помогает собирать чувствительную информацию",
+      "recommendation": "Убрать доступ к nodes для прикладных сервисов"
+    },
+    {
+      "checkId": "K8S-RBAC-002",
+      "severity": "HIGH",
+      "resource": {
+        "kind": "ServiceAccount",
+        "namespace": "kube-system",
+        "name": "bootstrap-signer"
+      },
+      "title": "RBAC: доступ к secrets",
+      "evidence": "binding \"system:controller:bootstrap-signer\" -\u003e role \"system:controller:bootstrap-signer\": resources include secrets, verbs=[get list watch]",
+      "risk": "Позволяет читать секреты и расширять компрометацию",
+      "recommendation": "Убрать доступ к secrets для прикладных SA"
+    },
+    {
+      "checkId": "K8S-RBAC-001",
+      "severity": "HIGH",
+      "resource": {
+        "kind": "ServiceAccount",
+        "namespace": "kube-system",
+        "name": "resourcequota-controller"
+      },
+      "title": "Избыточные RBAC-права (wildcard)",
+      "evidence": "binding \"system:controller:resourcequota-controller\" -\u003e clusterrole \"system:controller:resourcequota-controller\": apiGroups=[*] resources=[*] verbs=[list watch]",
+      "risk": "Wildcard правила часто позволяют выполнять опасные операции в kube-API",
+      "recommendation": "Заменить '*' на конкретные ресурсы/verbs и ограничить по namespace"
+    },
+    {
+      "checkId": "K8S-RBAC-004",
+      "severity": "HIGH",
+      "resource": {
+        "kind": "ServiceAccount",
+        "namespace": "kube-system",
+        "name": "ttl-controller"
+      },
+      "title": "RBAC: доступ к nodes",
+      "evidence": "binding \"system:controller:ttl-controller\" -\u003e clusterrole \"system:controller:ttl-controller\": resources include nodes, verbs=[list patch update watch]",
+      "risk": "Доступ к узлам помогает собирать чувствительную информацию",
+      "recommendation": "Убрать доступ к nodes для прикладных сервисов"
+    },
+    {
+      "checkId": "K8S-RBAC-004",
+      "severity": "HIGH",
+      "resource": {
+        "kind": "ServiceAccount",
+        "namespace": "audit",
+        "name": "k8s-audit"
+      },
+      "title": "RBAC: доступ к nodes",
+      "evidence": "binding \"k8s-audit-readonly-binding\" -\u003e clusterrole \"k8s-audit-readonly\": resources include nodes, verbs=[get list watch]",
+      "risk": "Доступ к узлам помогает собирать чувствительную информацию",
+      "recommendation": "Убрать доступ к nodes для прикладных сервисов"
+    },
+    {
+      "checkId": "K8S-RBAC-004",
+      "severity": "HIGH",
+      "resource": {
+        "kind": "ServiceAccount",
+        "namespace": "kube-system",
+        "name": "attachdetach-controller"
+      },
+      "title": "RBAC: доступ к nodes",
+      "evidence": "binding \"system:controller:attachdetach-controller\" -\u003e clusterrole \"system:controller:attachdetach-controller\": resources include nodes, verbs=[get list watch]",
+      "risk": "Доступ к узлам помогает собирать чувствительную информацию",
+      "recommendation": "Убрать доступ к nodes для прикладных сервисов"
+    },
+    {
+      "checkId": "K8S-RBAC-001",
+      "severity": "HIGH",
+      "resource": {
+        "kind": "ServiceAccount",
+        "namespace": "kube-system",
+        "name": "disruption-controller"
+      },
+      "title": "Избыточные RBAC-права (wildcard)",
+      "evidence": "binding \"system:controller:disruption-controller\" -\u003e clusterrole \"system:controller:disruption-controller\": apiGroups=[*] resources=[*/scale] verbs=[get]",
+      "risk": "Wildcard правила часто позволяют выполнять опасные операции в kube-API",
+      "recommendation": "Заменить '*' на конкретные ресурсы/verbs и ограничить по namespace"
+    },
+    {
+      "checkId": "K8S-RBAC-002",
+      "severity": "HIGH",
+      "resource": {
+        "kind": "ServiceAccount",
+        "namespace": "kube-system",
+        "name": "token-cleaner"
+      },
+      "title": "RBAC: доступ к secrets",
+      "evidence": "binding \"system:controller:token-cleaner\" -\u003e role \"system:controller:token-cleaner\": resources include secrets, verbs=[delete get list watch]",
+      "risk": "Позволяет читать секреты и расширять компрометацию",
+      "recommendation": "Убрать доступ к secrets для прикладных SA"
+    },
+    {
+      "checkId": "K8S-RBAC-004",
+      "severity": "HIGH",
+      "resource": {
+        "kind": "ServiceAccount",
+        "namespace": "local-path-storage",
+        "name": "local-path-provisioner-service-account"
+      },
+      "title": "RBAC: доступ к nodes",
+      "evidence": "binding \"local-path-provisioner-bind\" -\u003e clusterrole \"local-path-provisioner-role\": resources include nodes, verbs=[get list watch]",
+      "risk": "Доступ к узлам помогает собирать чувствительную информацию",
+      "recommendation": "Убрать доступ к nodes для прикладных сервисов"
+    },
+    {
+      "checkId": "K8S-RBAC-004",
+      "severity": "HIGH",
+      "resource": {
+        "kind": "ServiceAccount",
+        "namespace": "kube-system",
+        "name": "route-controller"
+      },
+      "title": "RBAC: доступ к nodes",
+      "evidence": "binding \"system:controller:route-controller\" -\u003e clusterrole \"system:controller:route-controller\": resources include nodes, verbs=[list watch]",
+      "risk": "Доступ к узлам помогает собирать чувствительную информацию",
+      "recommendation": "Убрать доступ к nodes для прикладных сервисов"
+    },
+    {
+      "checkId": "K8S-RBAC-004",
+      "severity": "HIGH",
+      "resource": {
+        "kind": "ServiceAccount",
+        "namespace": "kube-system",
+        "name": "service-controller"
+      },
+      "title": "RBAC: доступ к nodes",
+      "evidence": "binding \"system:controller:service-controller\" -\u003e clusterrole \"system:controller:service-controller\": resources include nodes, verbs=[list watch]",
+      "risk": "Доступ к узлам помогает собирать чувствительную информацию",
+      "recommendation": "Убрать доступ к nodes для прикладных сервисов"
+    },
+    {
+      "checkId": "K8S-RBAC-004",
+      "severity": "HIGH",
+      "resource": {
+        "kind": "ServiceAccount",
+        "namespace": "kube-system",
+        "name": "node-controller"
+      },
+      "title": "RBAC: доступ к nodes",
+      "evidence": "binding \"system:controller:node-controller\" -\u003e clusterrole \"system:controller:node-controller\": resources include nodes, verbs=[delete get list patch update watch]",
+      "risk": "Доступ к узлам помогает собирать чувствительную информацию",
+      "recommendation": "Убрать доступ к nodes для прикладных сервисов"
+    },
+    {
+      "checkId": "K8S-RBAC-101",
+      "severity": "MEDIUM",
+      "resource": {
+        "kind": "ClusterRole",
+        "name": "cluster-admin"
+      },
+      "title": "ClusterRole содержит wildcard правила",
+      "evidence": "apiGroups=[*] resources=[*] verbs=[*]",
+      "risk": "Wildcard roles приводят к избыточным правам при привязке",
+      "recommendation": "Ограничить rules до нужных ресурсов и verbs"
+    },
+    {
+      "checkId": "K8S-RBAC-101",
+      "severity": "MEDIUM",
+      "resource": {
+        "kind": "ClusterRole",
+        "name": "cluster-admin"
+      },
+      "title": "ClusterRole содержит wildcard правила",
+      "evidence": "apiGroups=[] resources=[] verbs=[*]",
+      "risk": "Wildcard roles приводят к избыточным правам при привязке",
+      "recommendation": "Ограничить rules до нужных ресурсов и verbs"
+    },
+    {
+      "checkId": "K8S-RBAC-101",
+      "severity": "MEDIUM",
+      "resource": {
+        "kind": "ClusterRole",
+        "name": "lab-superuser"
+      },
+      "title": "ClusterRole содержит wildcard правила",
+      "evidence": "apiGroups=[*] resources=[*] verbs=[*]",
+      "risk": "Wildcard roles приводят к избыточным правам при привязке",
+      "recommendation": "Ограничить rules до нужных ресурсов и verbs"
+    },
+    {
+      "checkId": "K8S-RBAC-101",
+      "severity": "MEDIUM",
+      "resource": {
+        "kind": "ClusterRole",
+        "name": "system:controller:disruption-controller"
+      },
+      "title": "ClusterRole содержит wildcard правила",
+      "evidence": "apiGroups=[*] resources=[*/scale] verbs=[get]",
+      "risk": "Wildcard roles приводят к избыточным правам при привязке",
+      "recommendation": "Ограничить rules до нужных ресурсов и verbs"
+    },
+    {
+      "checkId": "K8S-RBAC-101",
+      "severity": "MEDIUM",
+      "resource": {
+        "kind": "ClusterRole",
+        "name": "system:controller:generic-garbage-collector"
+      },
+      "title": "ClusterRole содержит wildcard правила",
+      "evidence": "apiGroups=[*] resources=[*] verbs=[delete get list patch update watch]",
+      "risk": "Wildcard roles приводят к избыточным правам при привязке",
+      "recommendation": "Ограничить rules до нужных ресурсов и verbs"
+    },
+    {
+      "checkId": "K8S-RBAC-101",
+      "severity": "MEDIUM",
+      "resource": {
+        "kind": "ClusterRole",
+        "name": "system:controller:horizontal-pod-autoscaler"
+      },
+      "title": "ClusterRole содержит wildcard правила",
+      "evidence": "apiGroups=[*] resources=[*/scale] verbs=[get update]",
+      "risk": "Wildcard roles приводят к избыточным правам при привязке",
+      "recommendation": "Ограничить rules до нужных ресурсов и verbs"
+    },
+    {
+      "checkId": "K8S-RBAC-101",
+      "severity": "MEDIUM",
+      "resource": {
+        "kind": "ClusterRole",
+        "name": "system:controller:horizontal-pod-autoscaler"
+      },
+      "title": "ClusterRole содержит wildcard правила",
+      "evidence": "apiGroups=[custom.metrics.k8s.io] resources=[*] verbs=[get list watch]",
+      "risk": "Wildcard roles приводят к избыточным правам при привязке",
+      "recommendation": "Ограничить rules до нужных ресурсов и verbs"
+    },
+    {
+      "checkId": "K8S-RBAC-101",
+      "severity": "MEDIUM",
+      "resource": {
+        "kind": "ClusterRole",
+        "name": "system:controller:horizontal-pod-autoscaler"
+      },
+      "title": "ClusterRole содержит wildcard правила",
+      "evidence": "apiGroups=[external.metrics.k8s.io] resources=[*] verbs=[get list watch]",
+      "risk": "Wildcard roles приводят к избыточным правам при привязке",
+      "recommendation": "Ограничить rules до нужных ресурсов и verbs"
+    },
+    {
+      "checkId": "K8S-RBAC-101",
+      "severity": "MEDIUM",
+      "resource": {
+        "kind": "ClusterRole",
+        "name": "system:controller:namespace-controller"
+      },
+      "title": "ClusterRole содержит wildcard правила",
+      "evidence": "apiGroups=[*] resources=[*] verbs=[delete deletecollection get list watch]",
+      "risk": "Wildcard roles приводят к избыточным правам при привязке",
+      "recommendation": "Ограничить rules до нужных ресурсов и verbs"
+    },
+    {
+      "checkId": "K8S-RBAC-101",
+      "severity": "MEDIUM",
+      "resource": {
+        "kind": "ClusterRole",
+        "name": "system:controller:resourcequota-controller"
+      },
+      "title": "ClusterRole содержит wildcard правила",
+      "evidence": "apiGroups=[*] resources=[*] verbs=[list watch]",
+      "risk": "Wildcard roles приводят к избыточным правам при привязке",
+      "recommendation": "Ограничить rules до нужных ресурсов и verbs"
+    },
+    {
+      "checkId": "K8S-RBAC-101",
+      "severity": "MEDIUM",
+      "resource": {
+        "kind": "ClusterRole",
+        "name": "system:kube-controller-manager"
+      },
+      "title": "ClusterRole содержит wildcard правила",
+      "evidence": "apiGroups=[*] resources=[*] verbs=[list watch]",
+      "risk": "Wildcard roles приводят к избыточным правам при привязке",
+      "recommendation": "Ограничить rules до нужных ресурсов и verbs"
+    },
+    {
+      "checkId": "K8S-RBAC-101",
+      "severity": "MEDIUM",
+      "resource": {
+        "kind": "ClusterRole",
+        "name": "system:kubelet-api-admin"
+      },
+      "title": "ClusterRole содержит wildcard правила",
+      "evidence": "apiGroups=[] resources=[nodes/log nodes/metrics nodes/proxy nodes/stats] verbs=[*]",
+      "risk": "Wildcard roles приводят к избыточным правам при привязке",
+      "recommendation": "Ограничить rules до нужных ресурсов и verbs"
+    },
+    {
+      "checkId": "K8S-RBAC-101",
+      "severity": "MEDIUM",
+      "resource": {
+        "kind": "ClusterRole",
+        "name": "system:kubelet-api-admin"
+      },
+      "title": "ClusterRole содержит wildcard правила",
+      "evidence": "apiGroups=[] resources=[nodes/configz nodes/healthz nodes/pods] verbs=[*]",
+      "risk": "Wildcard roles приводят к избыточным правам при привязке",
+      "recommendation": "Ограничить rules до нужных ресурсов и verbs"
+    },
+    {
+      "checkId": "K8S-NET-001",
+      "severity": "HIGH",
+      "resource": {
+        "kind": "Namespace",
+        "name": "audit"
+      },
+      "title": "В namespace нет NetworkPolicy (по умолчанию allow-all)",
+      "evidence": "networkpolicies=0",
+      "risk": "Отсутствие сегментации упрощает боковое перемещение",
+      "recommendation": "Добавить default-deny ingress/egress и разрешать только нужный трафик"
+    },
+    {
+      "checkId": "K8S-NET-001",
+      "severity": "HIGH",
+      "resource": {
+        "kind": "Namespace",
+        "name": "default"
+      },
+      "title": "В namespace нет NetworkPolicy (по умолчанию allow-all)",
+      "evidence": "networkpolicies=0",
+      "risk": "Отсутствие сегментации упрощает боковое перемещение",
+      "recommendation": "Добавить default-deny ingress/egress и разрешать только нужный трафик"
+    },
+    {
+      "checkId": "K8S-NET-001",
+      "severity": "HIGH",
+      "resource": {
+        "kind": "Namespace",
+        "name": "kube-node-lease"
+      },
+      "title": "В namespace нет NetworkPolicy (по умолчанию allow-all)",
+      "evidence": "networkpolicies=0",
+      "risk": "Отсутствие сегментации упрощает боковое перемещение",
+      "recommendation": "Добавить default-deny ingress/egress и разрешать только нужный трафик"
+    },
+    {
+      "checkId": "K8S-NET-001",
+      "severity": "HIGH",
+      "resource": {
+        "kind": "Namespace",
+        "name": "kube-public"
+      },
+      "title": "В namespace нет NetworkPolicy (по умолчанию allow-all)",
+      "evidence": "networkpolicies=0",
+      "risk": "Отсутствие сегментации упрощает боковое перемещение",
+      "recommendation": "Добавить default-deny ingress/egress и разрешать только нужный трафик"
+    },
+    {
+      "checkId": "K8S-NET-002",
+      "severity": "MEDIUM",
+      "resource": {
+        "kind": "Namespace",
+        "name": "lab-egress"
+      },
+      "title": "Нет default-deny Ingress для всех Pod'ов",
+      "evidence": "не найден NetworkPolicy с podSelector:{} и ingress:[]",
+      "risk": "Входящий трафик к Pod'ам может быть открыт шире, чем требуется",
+      "recommendation": "Добавить default-deny ingress policy (podSelector: {})"
+    },
+    {
+      "checkId": "K8S-NET-003",
+      "severity": "MEDIUM",
+      "resource": {
+        "kind": "Namespace",
+        "name": "lab-egress"
+      },
+      "title": "Нет default-deny Egress для всех Pod'ов",
+      "evidence": "не найден NetworkPolicy с podSelector:{} и egress:[]",
+      "risk": "Исходящий трафик может позволить утечки и доступ к внешним сервисам",
+      "recommendation": "Добавить default-deny egress и разрешить только нужные направления"
+    },
+    {
+      "checkId": "K8S-NET-002",
+      "severity": "MEDIUM",
+      "resource": {
+        "kind": "Namespace",
+        "name": "lab-restricted"
+      },
+      "title": "Нет default-deny Ingress для всех Pod'ов",
+      "evidence": "не найден NetworkPolicy с podSelector:{} и ingress:[]",
+      "risk": "Входящий трафик к Pod'ам может быть открыт шире, чем требуется",
+      "recommendation": "Добавить default-deny ingress policy (podSelector: {})"
+    },
+    {
+      "checkId": "K8S-NET-003",
+      "severity": "MEDIUM",
+      "resource": {
+        "kind": "Namespace",
+        "name": "lab-restricted"
+      },
+      "title": "Нет default-deny Egress для всех Pod'ов",
+      "evidence": "не найден NetworkPolicy с podSelector:{} и egress:[]",
+      "risk": "Исходящий трафик может позволить утечки и доступ к внешним сервисам",
+      "recommendation": "Добавить default-deny egress и разрешить только нужные направления"
+    },
+    {
+      "checkId": "K8S-NET-001",
+      "severity": "HIGH",
+      "resource": {
+        "kind": "Namespace",
+        "name": "lab-vuln"
+      },
+      "title": "В namespace нет NetworkPolicy (по умолчанию allow-all)",
+      "evidence": "networkpolicies=0",
+      "risk": "Отсутствие сегментации упрощает боковое перемещение",
+      "recommendation": "Добавить default-deny ingress/egress и разрешать только нужный трафик"
+    },
+    {
+      "checkId": "K8S-NET-001",
+      "severity": "HIGH",
+      "resource": {
+        "kind": "Namespace",
+        "name": "local-path-storage"
+      },
+      "title": "В namespace нет NetworkPolicy (по умолчанию allow-all)",
+      "evidence": "networkpolicies=0",
+      "risk": "Отсутствие сегментации упрощает боковое перемещение",
+      "recommendation": "Добавить default-deny ingress/egress и разрешать только нужный трафик"
+    },
+    {
+      "checkId": "K8S-NET-004",
+      "severity": "HIGH",
+      "resource": {
+        "kind": "Service",
+        "namespace": "lab-vuln",
+        "name": "web-nodeport"
+      },
+      "title": "Service типа NodePort",
+      "evidence": "type=NodePort ports=[80-\u003e30080/TCP]",
+      "risk": "NodePort расширяет поверхность атаки (порт на узлах)",
+      "recommendation": "Избегать NodePort, использовать Ingress/LoadBalancer с явным контролем доступа"
+    }
+  ]
+}
