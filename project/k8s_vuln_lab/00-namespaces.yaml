@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: lab-vuln
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: lab-egress
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: lab-restricted
+  labels:
+    pod-security.kubernetes.io/enforce: "restricted"
+    pod-security.kubernetes.io/enforce-version: "latest"

@@ -1,0 +1,98 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: demo-secret
+  namespace: lab-vuln
+type: Opaque
+stringData:
+  DB_PASSWORD: "SuperSecretPassword123!"
+  API_TOKEN: "token_example_abcdef123456"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: secrets-in-env
+  namespace: lab-vuln
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: secrets-in-env
+  template:
+    metadata:
+      labels:
+        app: secrets-in-env
+    spec:
+      serviceAccountName: dev-sa
+      containers:
+        - name: app
+          image: nginx:1.27-alpine
+          env:
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: demo-secret
+                  key: DB_PASSWORD
+            - name: API_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: demo-secret
+                  key: API_TOKEN
+          
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: privileged-hostpath
+  namespace: lab-vuln
+  labels:
+    app: privileged-hostpath
+spec:
+  serviceAccountName: cluster-admin-sa
+  hostPID: true
+  hostNetwork: true
+  automountServiceAccountToken: true
+  containers:
+    - name: shell
+      image: alpine:3.20
+      command: ["sh", "-c", "echo 'running'; sleep 1d"]
+      securityContext:
+        privileged: true
+        allowPrivilegeEscalation: true
+        runAsUser: 0
+        readOnlyRootFilesystem: false
+        capabilities:
+          add: ["NET_ADMIN", "NET_RAW", "SYS_ADMIN"]
+        seccompProfile:
+          type: Unconfined
+      volumeMounts:
+        - name: host-root
+          mountPath: /host
+        - name: host-proc
+          mountPath: /hostproc
+  volumes:
+    - name: host-root
+      hostPath:
+        path: /
+        type: Directory
+    - name: host-proc
+      hostPath:
+        path: /proc
+        type: Directory
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: imds-probe
+  namespace: lab-egress
+spec:
+  containers:
+    - name: curl
+      image: curlimages/curl:8.10.1
+      command:
+        - sh
+        - -c
+        - |
+          echo "[*] trying IMDS...";
+          curl -m 2 -sS http://169.254.169.254/ || true;
+          sleep 1d
