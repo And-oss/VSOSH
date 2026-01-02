@@ -13,7 +13,6 @@ import (
 	"time"
 )
 
-// Minimal Kubernetes REST client (in-cluster).
 
 type Client struct {
 	baseURL string
@@ -25,7 +24,6 @@ func NewInClusterClient() (*Client, error) {
 	host := os.Getenv("KUBERNETES_SERVICE_HOST")
 	port := os.Getenv("KUBERNETES_SERVICE_PORT")
 	if host == "" || port == "" {
-		// fall back to default DNS
 		host = "kubernetes.default.svc"
 		port = "443"
 	}
