@@ -16,5 +16,5 @@ spec:
             - "-format=json"
             - "-fail-on=HIGH"
             # - "-namespace=lab-vuln"            # сканить только один namespace
-            # - "-include-kube-system"           # включить kube-system
-            # - "-probe-imds"                    # активный probe на 169.254.169.254
+            #- "-include-kube-system"           # включить kube-system
+            #- "-probe-imds"                    # активный probe на 169.254.169.254
